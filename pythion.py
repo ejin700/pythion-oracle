@@ -1,9 +1,4 @@
-# Emily Jin and Jorge Solis
-# May 3rd, 2017
-# Professor Hardeep Johar
-# Data Analytics for Operations Research
-
-#necessary libraries
+#import necessary libraries
 from flask import Flask, session, render_template, request, make_response, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField
@@ -12,6 +7,8 @@ from sklearn.cross_validation import train_test_split
 from sklearn import linear_model
 from scipy import stats
 from textwrap import wrap
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pylab
 import numpy as np
@@ -77,7 +74,6 @@ def compute():
     stat = [mse_in,mse_out,r_value,r2]
 
     #write png file and graph scatterplot with regression line
-    fig = plt.figure()
     plt.scatter(x,y)
     plt.plot(np.unique(x), np.poly1d(np.polyfit(x, y, 1))(np.unique(x)))
     plt.ylabel('Expected Lifespan')
@@ -135,5 +131,4 @@ def add_header(response):
     response.headers['Cache-Control'] = 'public, max-age=0'
     return response
 
-if __name__ == '__main__':
-    app.run()
+app.run(host="0.0.0.0",port=5000)
