@@ -5,8 +5,8 @@ Final project for IEOR 4572 (Data Analytics in Python for OR), Spring 2017
 Due to the multiple dependencies, it is most convenient to run this program in a Docker container. Therefore, the web app is hosted on the IP of the Docker virtual machine (docker-machine ip) on port 5000.
 
 To build and run the program using Docker, use:
-  docker build -t pythion .
-  docker run -it --rm -p 5000:5000 pythion
+    docker build -t pythion .
+    docker run -it --rm -p 5000:5000 pythion
   
 If the program is running on the local machine, the web app will be hosted on localhost on port 5000.
   
